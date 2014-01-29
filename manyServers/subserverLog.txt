@@ -1,0 +1,6 @@
+Created dynamic server at localhost8817
+Created static server at: 8816
+^C^CCreated dynamic server at localhost:8817
+Created static server at: 8816
+Route matches. Id: asdf
+[90mGET /asfdasfd [33m404 [90m31ms[0m
