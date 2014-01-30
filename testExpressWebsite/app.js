@@ -5,6 +5,7 @@
 	var http = require('http');
 	var path = require('path');
 	var mapRoute = require('./mapRoute');
+	var lessMiddleware = require('less-middleware');
 
 	var app = express();
 
@@ -17,8 +18,14 @@
 	app.use(express.json());
 	app.use(express.urlencoded());
 	app.use(express.methodOverride());
+	app.use(lessMiddleware({
+		src: path.join(__dirname + '/less'),
+		dest: path.join(__dirname + '/public/stylesheets'),
+		compress: true
+	}));
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
+
 
 	// development only
 	if ('development' === app.get('env')) {

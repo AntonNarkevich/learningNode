@@ -5,15 +5,15 @@
 	'use strict';
 
 	module.exports.index = function (req, res) {
-		res.end('index action has been invoked');
+		res.send('index action has been invoked');
 	};
 
 	module.exports.update = function (req, res) {
-		res.end('update action has been invoked');
+		res.send('update action has been invoked');
 	};
 
 	module.exports.custom = function custom(req, res) {
-		res.end('some custom action');
+		res.send('some custom action');
 	};
 	module.exports.custom.verb = 'del';
 }());
