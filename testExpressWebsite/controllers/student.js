@@ -4,8 +4,12 @@
 (function studentController() {
 	'use strict';
 
+	var repo = require('../dataAccess/studentRepository');
+
 	module.exports.index = function (req, res) {
-		res.send('index action has been invoked');
+		var allStudents = repo.readAll();
+
+		res.render('/student/index', {students: allStudents});
 	};
 
 	module.exports.update = function (req, res) {
