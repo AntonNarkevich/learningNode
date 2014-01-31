@@ -1,3 +1,17 @@
-.main-wrapper {
-  border-top: 6px #8CC84B solid;
+@import "../bower_components/lesshat/build/lesshat.less";
+@import "common/mixins.less";
+@import "common/variables.less";
+
+html {
+	border-top: 4px solid @themeColor;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	border-top: 1px solid @themeColor;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
 }

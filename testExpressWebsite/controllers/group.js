@@ -4,5 +4,9 @@
 'use strict';
 
 module.exports.index = function (req, res) {
-	res.render('group/index');
+	res.render('group/index', {attitude: getAttitude()});
 };
+
+function getAttitude() {
+	return Math.random() > 0.5 ? 'welcome' : 'hated';
+}

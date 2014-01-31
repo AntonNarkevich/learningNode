@@ -13,18 +13,23 @@
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', path.join(__dirname, 'views'));
 	app.set('view engine', 'jade');
-	app.use(express.favicon());
+	app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));
 	app.use(express.logger('dev'));
 	app.use(express.json());
 	app.use(express.urlencoded());
 	app.use(express.methodOverride());
 	app.use(lessMiddleware({
-		src: path.join(__dirname + '/less'),
-		dest: path.join(__dirname + '/public/stylesheets'),
-		compress: true
+		src:'../less',
+		dest: '/stylesheets',
+		root: path.join(__dirname + '/public'),
+//		compress: true,
+		debug: true
+//		optimization: 2,
+//		yuicompress: true
 	}));
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(express.static(path.join(__dirname, 'bower_components')));
 
 
 	// development only
