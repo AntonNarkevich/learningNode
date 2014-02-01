@@ -4,20 +4,42 @@
 (function studentController() {
 	'use strict';
 
-	var repo = require('../dataAccess/studentRepository');
+	var path = require('path'),
+		repo = require('../dataAccess/studentRepository');
 
 	module.exports.index = function (req, res) {
 		var allStudents = repo.readAll();
 
-		res.render('/student/index', {students: allStudents});
+		res.render(path.normalize('/student/index'), {students: allStudents});
 	};
 
-	module.exports.update = function (req, res) {
-		res.send('update action has been invoked');
+	module.exports.destroy = function (req, res) {
+		repo.remove(req.params.id);
+
+		res.redirect('/student');
 	};
 
-	module.exports.custom = function custom(req, res) {
-		res.send('some custom action');
+	module.exports.new = function (req, res) {
+		res.render(path.normalize('/student/create'));
 	};
-	module.exports.custom.verb = 'del';
+
+	module.exports.create = function (req, res) {
+		var student = {
+			id: req.body.id,
+			name: req.body.name,
+			age: req.body.age
+		};
+
+		console.log(student);
+
+		repo.create(student);
+		res.redirect('/student');
+	};
+
+	module.exports.show = function(req, res) {
+		var student = repo.read(req.params.id);
+
+		res.render(path.normalize('/student/details'), student);
+	};
+
 }());

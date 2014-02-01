@@ -4,6 +4,13 @@ html
 		title title
 		link(rel="stylesheet" href="/bootstrap-css/css/bootstrap.css")
 		link(rel="stylesheet" href="/stylesheets/master.css")
+		block head
 	body
-		block content
+		header
+			h1.pull-right
+				block head-line
+		div.main-content
+			block content
+
 		footer Antonio Narkevich © 2014, Minsk
+		block body-end

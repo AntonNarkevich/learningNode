@@ -1,8 +1,16 @@
 extends ../layout
+
+block head
+	link(rel="stylesheet", href="/stylesheets/student.css")
+
+block head-line
+	| All the students
+
 block content
-	div.main-wrapper
-		h1.pull-right Student index.
+	div.students
 		each student in students
 			div.student-info
-				span.student-name= student.name
-				span= student.age
+				span.student-name #{student.name}
+				a.btn.btn-default.pull-right(href="/student/#{student.id}") Details
+
+	a.create-new-button.btn.btn-primary(href="/student/new") Create New

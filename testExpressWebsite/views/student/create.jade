@@ -1,0 +1,17 @@
+extends ../layout
+
+block head-line
+	| Create a student
+
+block content
+	form(role="form", action="/student", method="POST")
+		div.form-group
+			label(for="student-id") Id:
+			input#student-id.form-control(type="text", name="id", placeholder="Id")
+		div.form-group
+			label(for="student-name") Student name:
+			input#student-name.form-control(type="text", name="name", placeholder="Student name")
+		div.form-group
+			label(for="student-age") Student age:
+			input#student-age.form-control(type="text", name="age", placeholder="Student age")
+		button.btn.btn-default(type="submit") Create student

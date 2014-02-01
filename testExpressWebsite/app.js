@@ -22,10 +22,9 @@
 		src:'../less',
 		dest: '/stylesheets',
 		root: path.join(__dirname + '/public'),
-//		compress: true,
-		debug: true
-//		optimization: 2,
-//		yuicompress: true
+		compress: true,
+		optimization: 2,
+		yuicompress: true
 	}));
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));

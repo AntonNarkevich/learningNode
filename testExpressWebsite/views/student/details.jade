@@ -1,0 +1,23 @@
+extends ../layout
+
+block head
+	link(rel="stylesheet", href="/stylesheets/student.css")
+
+block head-line
+	| Student details
+
+block content
+	div.student-details
+		div.property
+			span.name id:
+			span.value #{id}
+		div.property
+			span.name name:
+			span.value #{name}
+		div.property
+			span.name age:
+			span.value #{age}
+
+	form(action="/student/#{id}" method="POST")
+		input(type="hidden", value="delete", name="_method")
+		input.delete-student-button.btn.btn-danger(type="submit", value="Delete it")
