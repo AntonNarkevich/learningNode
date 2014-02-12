@@ -1,0 +1,41 @@
+@import "../bower_components/lesshat/build/lesshat.less";
+@import "common/mixins.less";
+@import "common/variables.less";
+
+.students {
+	border-bottom: 1px dashed @themeColor;
+}
+
+.create-new-button {
+	margin-top: 10px;
+}
+
+.student-info {
+	width: 100%;
+	border: 1px dashed @themeColor;
+	border-bottom: 0;
+	padding: 5px 10px;
+	overflow: hidden;
+
+	span {
+		display: inline-block;
+	}
+}
+
+.student-details {
+	width: 100%;
+	border: 1px dashed @themeColor;
+	padding: 5px 10px;
+}
+
+.property {
+	.name {
+		font-weight: bold;
+		width: 80px;
+		display: inline-block;
+	}
+}
+
+.delete-student-button {
+	margin-top: 10px;
+}

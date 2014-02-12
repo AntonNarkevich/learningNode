@@ -1,12 +1,13 @@
-{
-	"1": {
-		"name": "Vasia",
-		"age": 12,
-		"id": 1
-	},
-	"2": {
-		"name": "Petia",
-		"age": 21,
-		"id": 2
-	}
-}
+{"3": {
+	"id": "3",
+	"name": "Anton Narkevich",
+	"age": "21"
+}, "5": {
+	"id": "5",
+	"name": "Vasia",
+	"age": "21"
+}, "6": {
+	"id": "6",
+	"name": "Petia",
+	"age": "32"
+}}
