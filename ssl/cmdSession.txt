@@ -1,0 +1,109 @@
+D:\ssl>openssl genrsa -des3 -out privateKey.key 1024
+Generating RSA private key, 1024 bit long modulus
+.....++++++
+..................................++++++
+unable to write 'random state'
+e is 65537 (0x10001)
+Enter pass phrase for privateKey.key:
+Verifying - Enter pass phrase for privateKey.key:
+
+D:\ssl>openssl req -new -key privateKey.key -out signatureRequest.csr
+Enter pass phrase for privateKey.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:BE
+State or Province Name (full name) [Some-State]:Minsk region
+Locality Name (eg, city) []:Minsk
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Neurosis corp
+Organizational Unit Name (eg, section) []:Board of directors
+Common Name (eg, YOUR name) []:localhost
+Email Address []:17140th@gmail.com
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:.
+An optional company name []:.
+
+D:\ssl>ren privateKey.key privateKey.key.org
+
+D:\ssl>openssl rsa -in privateKey.key.org -out privateKey.key
+Enter pass phrase for privateKey.key.org:
+writing RSA key
+
+D:\ssl>set RANDFILE=D:\.rnd
+
+D:\ssl>openssl x509 -req -days 365 -in signatureRequest.csr -signkey privateKey.key -out certificate.crt
+Signature ok
+subject=/C=BE/ST=Minsk region/L=Minsk/O=Neurosis corp/OU=Board of directors/CN=localhost/emailAddress=17140th@gmail.com
+Getting Private key
+
+D:\ssl>openssl rsa -in privateKey.key -pubout -out publicKey.key
+writing RSA key
+
+D:\ssl>openssl rsa -in privateKey.key.org -pubout -out publicKey.key.org
+Enter pass phrase for privateKey.key.org:
+writing RSA key
+
+D:\ssl>openssl rsa -in privateKey.key -check
+RSA key ok
+writing RSA key
+-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQDAvMWr9otxFTgeG5apmMOE30SuOx57cegYnDgv75LBCC77IZlE
+upi5DRXVZv3sM73zBBqjfy3svA3Ww7pGmcUqqBpMC5vK7/lwEh3kaWi2l3tLGNmT
+uCRqPglImKOcfDE9Ot4IcC4xwY99BdTo/SfcGBey/SxW1fRq6llrj1uYzwIDAQAB
+AoGBAJKdh0l/LSgC2kOc/QlamjEzno1jj5acWdCO1fcxKdQJo6OKNYug3pi2qYtC
+45qQ6cg5sQH6tzbE/0oGbmdShjbO9kENPCIKI8v2oGTKJmmh5Ced6yg9R4ICLFGs
+9mxU/gvjsXjO3xTshnZp6B/A8yYCQup3zjC9f4bk2b8b+4gRAkEA9x9WCPn1Eoxw
+LNDcoLoLBmpyeZtIp4iofPqr6AYfWeqB4gJdJwpfb+FSKVaorU0DoTu7aQG0Aktq
+UTHsI6yxiwJBAMepSJ/r1ZtW2MEt9NfgLtNpONIWCLfwSvPZy1cCUBpd0HFoGSw9
+oY8mPUNiqvMxxAzzS/lNUKM+/lZAlmgA1k0CQQChJlUje2S+WMiZ4QXO5iNkZqwJ
+8yJY5fwBrDHIF54AM7XJHYODfvcnbUb34CQVBwDT9rDK1Cp/yJAnLKfxx57rAkBL
+001idpT71oKg8swOg/Qkk8xhdL7A5EAC1c60b4tuR/yWZRtSQuGtVK9lfP5BN8Al
+zuwmdKdQJ+c9aG/2dYLtAkB/0dTlsmxWJhBJRYV41XgyRVBHZhwmmxk/JH6nvVHZ
+s/EcBu/hVdFGamw6yTTFqsWbr9rzU+s5G8sunDnSeHri
+-----END RSA PRIVATE KEY-----
+
+D:\ssl>openssl rsa -in privateKey.key.org -check
+Enter pass phrase for privateKey.key.org:
+RSA key ok
+writing RSA key
+-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQDAvMWr9otxFTgeG5apmMOE30SuOx57cegYnDgv75LBCC77IZlE
+upi5DRXVZv3sM73zBBqjfy3svA3Ww7pGmcUqqBpMC5vK7/lwEh3kaWi2l3tLGNmT
+uCRqPglImKOcfDE9Ot4IcC4xwY99BdTo/SfcGBey/SxW1fRq6llrj1uYzwIDAQAB
+AoGBAJKdh0l/LSgC2kOc/QlamjEzno1jj5acWdCO1fcxKdQJo6OKNYug3pi2qYtC
+45qQ6cg5sQH6tzbE/0oGbmdShjbO9kENPCIKI8v2oGTKJmmh5Ced6yg9R4ICLFGs
+9mxU/gvjsXjO3xTshnZp6B/A8yYCQup3zjC9f4bk2b8b+4gRAkEA9x9WCPn1Eoxw
+LNDcoLoLBmpyeZtIp4iofPqr6AYfWeqB4gJdJwpfb+FSKVaorU0DoTu7aQG0Aktq
+UTHsI6yxiwJBAMepSJ/r1ZtW2MEt9NfgLtNpONIWCLfwSvPZy1cCUBpd0HFoGSw9
+oY8mPUNiqvMxxAzzS/lNUKM+/lZAlmgA1k0CQQChJlUje2S+WMiZ4QXO5iNkZqwJ
+8yJY5fwBrDHIF54AM7XJHYODfvcnbUb34CQVBwDT9rDK1Cp/yJAnLKfxx57rAkBL
+001idpT71oKg8swOg/Qkk8xhdL7A5EAC1c60b4tuR/yWZRtSQuGtVK9lfP5BN8Al
+zuwmdKdQJ+c9aG/2dYLtAkB/0dTlsmxWJhBJRYV41XgyRVBHZhwmmxk/JH6nvVHZ
+s/EcBu/hVdFGamw6yTTFqsWbr9rzU+s5G8sunDnSeHri
+-----END RSA PRIVATE KEY-----
+
+D:\ssl>vim encryptMe.txt
+
+D:\ssl>openssl rsautl -in encryptMe.txt -out encryptedOne.txt -pubin -inkey publicKey.key -encrypt
+
+D:\ssl>vim encryptedOne.txt
+
+D:\ssl>openssl rsautl -in encryptedOne.txt -inkey privateKey.key.org -decrypt
+Enter pass phrase for privateKey.key.org:
+Please encrypt me.
+
+D:\ssl>openssl rsautl -in encryptedOne.txt -out decryptedOne.txt -inkey privateKey.key.org -decrypt
+Enter pass phrase for privateKey.key.org:
+
+D:\ssl>vim decryptedOne.txt
+
+D:\ssl>openssl rsautl -in encryptedOne.txt -out decryptedOne.txt -inkey privateKey.key -decrypt
+
+D:\ssl>vim decryptedOne.txt
+
