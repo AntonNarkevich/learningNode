@@ -1,0 +1,10 @@
+doctype html
+head
+	title Http form test
+body
+	form(action="http://localhost:8890/", method="POST")
+		label(for="username-input") Username:
+		input#username-input(type="text", name="username")
+		label(for="password-input") Password:
+		input#password-input(type="password", name="password")
+		input(type="submit" value="Ok")
