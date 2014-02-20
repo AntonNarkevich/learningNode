@@ -1,0 +1,30 @@
+doctype html
+head
+	title #{title}
+body
+	h1 #{title}
+
+	h1 Login
+
+	form(method = "POST"
+		action = "/login")
+
+		p Username:
+			input(type = "text"
+				name = "username"
+				id = "username-input")
+
+		p Password:
+			input(type = "password"
+				name = "password"
+				id = "password-input")
+
+		input(type = "submit"
+			name = "submit"
+			id = "submin-input"
+			value = "Login")
+
+		input(type = "reset"
+			name = "reset"
+			id = "reset-input"
+			value = "reset")
