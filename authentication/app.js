@@ -15,6 +15,25 @@
 		passport = require('passport'),
 		LocalStrategy = require('passport-local').Strategy;
 
+	passport.serializeUser(function (user, done) {
+		done(null, user.name);
+	});
+
+	passport.deserializeUser(function (name, done) {
+		var password = USERS[name];
+
+		if (password) {
+			var user = {
+				name: name,
+				pass: password
+			};
+
+			done(null, user);
+		} else {
+			done({msg: 'Can\'t deserialize, user not found'});
+		}
+	});
+
 	passport.use(new LocalStrategy(function (username, password, done) {
 		console.log('LocalStrategy config function has been called.');
 
@@ -44,11 +63,11 @@
 		app.use(express.logger('dev'));
 		app.use(express.bodyParser());
 //
-//		app.use(express.cookieParser('keyboard cat'));
-//		app.use(express.session());
+		app.use(express.cookieParser('keyboard cat'));
+		app.use(express.session());
 
 		app.use(passport.initialize());
-//		app.use(passport.session());
+		app.use(passport.session());
 
 		app.use(app.router);
 
