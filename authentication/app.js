@@ -59,11 +59,10 @@
 		app.set('views', path.join(__dirname, '/views'));
 		app.set('view engine', 'jade');
 
-//		app.use(express.favicon());
 		app.use(express.logger('dev'));
 		app.use(express.bodyParser());
-//
-		app.use(express.cookieParser('keyboard cat'));
+
+		app.use(express.cookieParser('optional cookie secret for session'));
 		app.use(express.session());
 
 		app.use(passport.initialize());
@@ -79,7 +78,7 @@
 	});
 
 	app.get('/login', function (req, res) {
-		var username = req.user ? req.user.username : '';
+		var username = req.user ? req.user.name : '';
 
 		res.render('login', {title: 'login page', username: username});
 	});
