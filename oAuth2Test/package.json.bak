@@ -1,0 +1,17 @@
+{
+  "name": "oAuth2Test",
+  "version": "0.0.0",
+  "description": "OAuth2 protocol test. Twitter authentication.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "redis": "~0.10.1"
+  },
+  "dependencies": {
+    "connect-flash": "~0.1.1"
+  }
+}
