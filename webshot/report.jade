@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+	head
+		title Industry Solutions, Thought Leadership
+	link(rel="stylesheet", type="text/css", href="css/styles.css")
+	body
+		each val, index in locals
+			div.ws-page-view-box
+				a(href="#{val}")
+					span.ws-link-url #{val}
+				img.ws-screenshot(src="screenshots/#{index}.png")
