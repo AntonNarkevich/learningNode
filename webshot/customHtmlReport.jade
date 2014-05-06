@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+	head
+		title Merkle Website Crawling
+	link(rel="stylesheet", type="text/css", href="css/styles.css")
+	link(rel="stylesheet", type="text/css", href="css/lib/bootstrap.min.css")
+	body
+		h1 The list of pages with custom content
+		h2 Pages that contain loads of custom content and need serious rebuild.
+		each pageInfo, index in loadsOfCustomContentPages
+			div.ws-page-view-box
+				a(href="#{pageInfo.url}")
+					span.ws-link-url [#{pageInfo.number}] #{pageInfo.url}
+				img.ws-screenshot(src="screenshots/#{pageInfo.number}.png")
+		hr
+		h2 Pages that contain only 1 image that needs to be aligned.
+		each pageInfo, index in justAlignImage
+			div.ws-page-view-box
+				a(href="#{pageInfo.url}")
+					span.ws-link-url [#{pageInfo.number}] #{pageInfo.url}
+				img.ws-screenshot(src="screenshots/#{pageInfo.number}.png")

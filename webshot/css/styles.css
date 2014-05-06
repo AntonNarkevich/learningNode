@@ -1,21 +1,25 @@
 @import url(lib/reset.css);
+
 html {
-  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+	font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
 }
+
 .ws-page-view-box {
-  padding: 40px;
-  display: inline-block;
-  width: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
+	padding: 40px;
+	display: inline-block;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	word-wrap: break-word;
 }
+
 .ws-link-url {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 30px;
+	display: block;
+	font-size: 20px;
+	margin-bottom: 30px;
 }
+
 .ws-screenshot {
-  width: 100%;
+	width: 100%;
 }

@@ -15,10 +15,10 @@ urls.forEach(function(url, index) {
 
 	webshot(url, util.format('screenshots/%s.png', index), options, function(err) {
 		if (err) {
-			console.error('Error occured processing %s.', url);
+			console.error('[%d] Error occured processing %s.', index, url);
 			console.error(err);
 		} else {
-			console.log('Screenshot of %s captured.', url);
+			console.log('[%d] Screenshot of %s captured.', index, url);
 		}
 	});
 });
