@@ -1,0 +1,14 @@
+<% include layout/head.ejs %>
+<%
+filters.myFilter = function (array) {
+	return array.map(function (element) {
+		return element + ' myFilter';
+	});
+};
+var array = [1, 2, 3];
+%>
+<%=: array | myFilter %>
+<%= 1 %>
+<% include partials/partial1.ejs %>
+<% include partials/partial2.ejs %>
+<% include layout/foot.ejs %>

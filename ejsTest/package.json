@@ -1,0 +1,16 @@
+{
+  "name": "ejsTest",
+  "version": "0.0.0",
+  "description": "",
+  "main": "compile.js",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "js-beautify": "^1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
